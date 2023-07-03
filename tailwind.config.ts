@@ -1,7 +1,13 @@
 import type { Config } from 'tailwindcss'
 import defaultTheme from 'tailwindcss/defaultTheme'
 
+import { addDynamicIconSelectors } from '@iconify/tailwind'
+
 export default <Partial<Config>>{
+  content: [
+    'content/**/*.md',
+  ],
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
@@ -9,4 +15,9 @@ export default <Partial<Config>>{
       },
     },
   },
+  plugins: [
+    addDynamicIconSelectors({
+      prefix: 'i',
+    }),
+  ],
 }
